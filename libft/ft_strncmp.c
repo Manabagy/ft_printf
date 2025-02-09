@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/27 13:33:55 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/02/03 11:45:52 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+{
+	unsigned int	a;
 
-#endif
+	a = 0;
+	while ((s1[a] != '\0' || s2[a] != '\0') && (a < n))
+	{
+		if (s1[a] != s2[a])
+		{
+			return ((unsigned char)s1[a] - (unsigned char)s2[a]);
+		}
+		a++;
+	}
+	return (0);
+}

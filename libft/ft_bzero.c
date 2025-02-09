@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/21 14:18:11 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/01/21 14:43:56 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*ptr;
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+	ptr = (unsigned char *)s;
+	while (n--)
+	{
+		*ptr = '\0';
+		ptr++;
+	}
+}

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/17 13:40:35 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/01/27 18:29:23 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_isascii(int a)
+{
+	if ((a >= 0 && a <= 127))
+		return (1);
+	else
+		return (0);
+}
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+/*#include <ctype.h>
+#include <stdio.h>
+int	main(void)
+{
+	char	b = '0';
+	printf("%d\n", ft_isascii(b));
+	printf("%d\n", isascii(b));
+}*/
