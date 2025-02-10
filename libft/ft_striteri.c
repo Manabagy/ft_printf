@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/27 13:33:04 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/01/31 14:34:47 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-#include "libft/libft.h"
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int	a;
 
-#endif
+	a = 0;
+	while (s[a])
+	{
+		(*f)(a, &s[a]);
+		a++;
+	}
+}

@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/21 15:27:08 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/02/03 15:01:57 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char	*s;
+	unsigned char	*d;
 
-#include "libft/libft.h"
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+	if (!dst && !src)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (d < s)
+	{
+		while (len--)
+		{
+			*d = *s;
+			d++;
+			s++;
+		}
+	}
+	else
+		while (len--)
+			d[len] = s[len];
+	return (dst);
+}

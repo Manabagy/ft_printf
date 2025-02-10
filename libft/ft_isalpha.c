@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/09 12:19:41 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/01/17 13:00:45 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/02/03 15:36:42 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_isalpha(int a)
+{
+	return ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'));
+}
+/*#include <ctype.h>
+#include <stdio.h>
 
-#include "libft/libft.h"
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+int	main(void)
+{
+	char b = 'f';
+	printf("%d\n", ft_isalpha(b));
+	printf("%d\n", isalpha(b));
+}*/
