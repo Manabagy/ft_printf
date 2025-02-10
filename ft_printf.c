@@ -20,33 +20,35 @@ int	check_format(const char *str, args)
 	else if (*str == 'X')
 		len += ft_puthex(va_arg(args, unsigned int), 1);
 	else if (*str == '%')
-		len += byte_putchar('%');
+		len += ft_putchar('%');
+	else if (*str == 'p')
+		len += ft_putptr(va_arg(args, unsigned int));
+	return (len);
 
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list args;
-	int		count;
+	int		len;
 
 	va_start(args, format);
 
-	const = 0;
-	while (format[a] != '\0')
+	len = 0;
+	while (*format != '\0')
 	{
-		if (format[a] == '%')
+		if (*format == '%')
 		{
-			str++;
-			count += check_format(str++, args);
+			format++;
+			len += check_format(format++, args);
 		}
 		else
 		{
-			count += ft_putchar(format);
-			str++;
+			len += ft_putchar(format);
+			format++;
 		}
-		a++;
 	}
 	va_end(args);
-	return (count);
+	return (len);
 
 }

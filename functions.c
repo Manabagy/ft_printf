@@ -37,3 +37,18 @@ int	ft_puthex(unsigned int n, int uppercase)
 
 	return (len);
 }
+
+int	ft_putptr(unsigned int n)
+{
+	int	len;
+
+	len = 0;
+	if (!n)
+	{
+		len += ft_putstr("0x0");
+		return (len);
+	}
+	len += ft_putstr("0x");
+	len += ft_puthex(n, 0);
+	return (len);
+}
