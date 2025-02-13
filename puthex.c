@@ -1,52 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   puthex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 12:19:01 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/13 16:55:00 by mabaghda         ###   ########.fr       */
+/*   Created: 2025/02/13 14:39:58 by mabaghda          #+#    #+#             */
+/*   Updated: 2025/02/13 16:55:26 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	len_putchar(char c)
+int	len_puthex(unsigned int n, int uppercase)
 {
-	write(1, &c, 1);
-	return (1);
-}
-
-int	len_putstr(char *str)
-{
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-int	len_putnbr(int nbr)
-{
-	int	len;
+	char	*base;
+	int		len;
 
 	len = 0;
-	ft_putnbr_fd(nbr, 1);
-	while (nbr >= 0)
-	{
-		nbr /= 10;
-		len++;
-	}
+	if (uppercase)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (n >= 16)
+		len += len_puthex(n / 16, uppercase);
+	len_putchar(base[n % 16]);
+	len++;
 	return (len);
 }
 
-int	len_putunbr(unsigned int nbr)
+int	len_putptr(unsigned int n)
 {
 	int	len;
 
 	len = 0;
-	if (nbr > 9)
+	if (!n)
 	{
-		len += len_putunbr(nbr / 10);
+		len += len_putstr("0x0");
+		return (len);
 	}
-	len += len_putchar(nbr % 10 + '0');
+	len += len_putstr("0x");
+	len += len_puthex(n, 0);
 	return (len);
 }
