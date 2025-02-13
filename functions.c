@@ -6,7 +6,7 @@
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:19:01 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/13 16:55:00 by mabaghda         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:25:16 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	len_putnbr(int nbr)
 	int	len;
 
 	len = 0;
-	ft_putnbr_fd(nbr, 1);
-	while (nbr >= 0)
+	while (nbr != 0)
 	{
+		len_putchar((nbr % 10) + '0');
 		nbr /= 10;
 		len++;
 	}
