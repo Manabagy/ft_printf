@@ -6,16 +6,16 @@
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:39:58 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/13 17:45:21 by mabaghda         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:21:51 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	len_puthex(unsigned int n, int uppercase)
+size_t	len_puthex(unsigned long long n, int uppercase)
 {
 	char	*base;
-	int		len;
+	size_t	len;
 
 	len = 0;
 	if (uppercase)
@@ -23,15 +23,18 @@ int	len_puthex(unsigned int n, int uppercase)
 	else
 		base = "0123456789abcdef";
 	if (n >= 16)
+	{
 		len += len_puthex(n / 16, uppercase);
-	len_putchar(base[n % 16]);
-	len++;
+		len += len_putchar(base[n % 16]);
+	}
+	else
+		len += len_putchar(base[n]);
 	return (len);
 }
 
-int	len_putptr(unsigned int n)
+size_t	len_putptr(unsigned long long n)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (!n)

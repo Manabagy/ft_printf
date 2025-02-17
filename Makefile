@@ -13,20 +13,23 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C $(LIBFT_DIR)
-	ar rcs $(NAME) $(OBJ) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+%.o: %.c $(LIBFT) ft_printf.h Makefile
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
-	rm -f $(OBJ)
 	make -C $(LIBFT_DIR) clean
+	rm -f $(OBJ)
 
 
 fclean: clean
-	rm -f $(NAME)
 	make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
 
 
 re: fclean all

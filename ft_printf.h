@@ -6,7 +6,7 @@
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:18:57 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/13 18:21:41 by mabaghda         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:21:24 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	len_putchar(char c);
-int	len_putstr(char *str);
-int	len_putnbr(int nbr);
-int	len_putunbr(unsigned int nbr);
-int	len_puthex(unsigned int n, int uppercase);
-int	len_putptr(unsigned int n);
+size_t	len_putchar(char c);
+size_t	len_putstr(char *str);
+size_t	len_putnbr(int nbr);
+size_t	len_putunbr(unsigned int nbr);
+size_t	len_puthex(unsigned long long n, int uppercase);
+size_t	len_putptr(unsigned long long n);
+int		ft_printf(const char *format, ...);
 
 #endif
