@@ -6,7 +6,7 @@
 /*   By: mabaghda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:39:58 by mabaghda          #+#    #+#             */
-/*   Updated: 2025/02/17 17:21:51 by mabaghda         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:58:57 by mabaghda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	len_puthex(unsigned long long n, int uppercase)
 	if (n >= 16)
 	{
 		len += len_puthex(n / 16, uppercase);
-		len += len_putchar(base[n % 16]);
+		len += len_puthex(n % 16, uppercase);
 	}
 	else
 		len += len_putchar(base[n]);
